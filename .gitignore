@@ -1,0 +1,15 @@
+*~
+.*
+*.DS_Store
+*.Rhistory
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.bib.bak
+*.docx
+*-old/
+!.gitignore
