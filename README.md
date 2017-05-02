@@ -10,6 +10,12 @@ The output is a country-year data set that contains two latent measures of disse
 - `eta`: The logit transformation of `pi`. This latent measure of dissent ranges from negative to positive infinity (again, in theory.)
 - `year` and `ccode`: the year and COW code for merging.
 
+To load the data into R directly from GitHub, you can use the following, which will always give you the latest version:
+
+    dissent <- rio::import("https://raw.githubusercontent.com/carlislerainey/latent-dissent/master/latent-dissent.csv")
+
+ I don't even know how to open a data set in Stata, but you can download the `.dta` file by clicking [here](https://github.com/carlislerainey/latent-dissent/blob/master/latent-dissent.dta?raw=true).  
+
 ## The Data
 
 The figure below shows the latent measure of dissent, `eta`, that makes the most theoretical sense to me. It also turns out that this measure predicts repression better than the other three (see below).
@@ -18,7 +24,13 @@ The figure below shows the latent measure of dissent, `eta`, that makes the most
 
 ## The Model
 
-The model is straightforward, but GitHub doesn't render math. In short, I model the number of dissent events in country *j* at time *t* as following a binomial distribution where the number of trials (i.e., *n* in Wikipedia's notation) is given by the total number of events for *i,j* and the probability of success varies across time. Within each country, I use a random walk prior to model the changes in the probability of success across time. For the details, see the Stan model [here](src/binomial.stan).
+In short, I model the number of dissent events in country *j* at time *t* as following a binomial distribution.
+
+![](figs/model.png)
+
+I'm interpreting `eta` and `pi` as latent measures of dissent.
+
+Notice that I just use a random walk prior to model the changes in the probability of success across time. For the details, see the Stan model [here](src/binomial.stan).
 
 ## Fitting the Model
 
