@@ -1,18 +1,18 @@
 # A Latent Measure of Dissent
 
-This code serves as a proof of concept that I wanted to share with colleagues to determines its potential usefulness. This code borrows heavily from work by Emily Ritter, especially her 2014 paper "Policy Disputes, Political Survival, and the Onset and Severity of State dissent" in *JCR*. You can find the details on her [research page](https://www.emilyhenckenritter.com/research/), including her [replication data (`.zip`)](https://www.emilyhenckenritter.com/s/RitterJCR2014Replication.zip) that I use in my analysis.
+This code serves as a proof of concept that I wanted to share with colleagues to determine its potential usefulness. This code borrows heavily from data created and shared Emily Ritter, especially her 2014 paper "Policy Disputes, Political Survival, and the Onset and Severity of State dissent" in *JCR*. You can find the details on her [research page](https://www.emilyhenckenritter.com/research/), including her [replication data (`.zip`)](https://www.emilyhenckenritter.com/s/RitterJCR2014Replication.zip) that I use in my analysis.
 
 The output is a country-year data set that contains two latent measures of dissent (`pi` and `eta`). These data sets (`latent-dissent.csv` and `latent-dissent.dta`) contain the following six variables:
 
 - `n_dissent_events`: the number of dissent events that occur in a country-year. Based on the IDEA data, see Ritter (2014).
-- `dissent_event_frac`: the fraction of the events that occur in a country-year in the IDEA data that are dissent.
-- `pi`: the latent probability that an event is dissent. This latent measure of dissent ranges from zero to one (at least in theory).
-- `eta`: The inverse logit transformation of `pi`. This latent measure of dissent ranges from negative to positive infinity (again, in theory.)
+- `dissent_event_frac`: the fraction of the events that occur in a country-year. It's the number of dissent events divided by the total number of events.
+- `pi`: the latent probability that an event is a dissent event. This latent measure of dissent ranges from zero to one (at least in theory).
+- `eta`: The logit transformation of `pi`. This latent measure of dissent ranges from negative to positive infinity (again, in theory.)
 - `year` and `ccode`: the year and COW code for merging.
 
 ## The Data
 
-The figure below shows the latent measure of dissent, `eta`, that makes the most theoretical sense to me. It also turns out that this measure predicts repression better than the other three.
+The figure below shows the latent measure of dissent, `eta`, that makes the most theoretical sense to me. It also turns out that this measure predicts repression better than the other three (see below).
 
 ![](figs/eta.png)
 
