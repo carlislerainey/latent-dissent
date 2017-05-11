@@ -18,6 +18,10 @@ To load the data into R directly from GitHub, you can use the following, which w
 
 ## The Data
 
+The figure below shows the relationships among the four measures of dissent. Notice that these measures are relatively uncorrelated with each other.
+
+![](figs/cors.png)
+
 The figure below shows the latent measure of dissent, `eta`, that makes the most theoretical sense to me. It also turns out that this measure predicts repression better than the other three (see below).
 
 ![](figs/eta.png)
