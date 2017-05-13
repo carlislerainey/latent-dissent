@@ -20,6 +20,8 @@ m1 <- lm(latentmean ~ pi, data = fariss)
 m2 <- lm(latentmean ~ eta, data = fariss)
 m3 <- lm(latentmean ~ frac_dissent_events, data = fariss)
 m4 <- lm(latentmean ~ n_dissent_events, data = fariss)
+m5 <- lm(latentmean ~ log(n_dissent_events + 1), data = fariss)
+
 
 # function to compute the rmse of the regression
 calc_rmse <- function(m_list) {
@@ -32,9 +34,10 @@ calc_rmse <- function(m_list) {
 
 # combine model fit statistics
 measures <- c("pi", "eta", "fraction of dissent events", 
-                 "number of dissent events")
-bic <- BIC(m1, m2, m3, m4)[, 2]
-rmse <- calc_rmse(list(m1, m2, m3, m4))
+							"number of dissent events", 
+							"log(number of dissent events) + 1")
+bic <- BIC(m1, m2, m3, m4, m5)[, 2]
+rmse <- calc_rmse(list(m1, m2, m3, m4, m5))
 model_comparision <- data.frame(measures, bic, rmse) %>%
   mutate(measures = reorder(measures, bic))
 mc_tall <- gather(model_comparision, fit_statistic, value, bic, rmse)
