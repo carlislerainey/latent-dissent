@@ -1,6 +1,6 @@
 
 # be sure to set working directory, e.g., 
-# setwd("~/Dropbox/projects/latent-dissent")on")
+# setwd("~/Dropbox/projects/latent-dissent")
 
 # load packages
 library(tidyverse)
@@ -16,10 +16,10 @@ fariss <- read.csv("data/farriss-scores.csv") %>%
   left_join(dissent)
 
 # fit models using four alterative explanatory variables
-m1 <- lm(latentmean ~ pi, data = fariss, x = TRUE, y = TRUE)
-m2 <- lm(latentmean ~ eta, data = fariss, x = TRUE, y = TRUE)
-m3 <- lm(latentmean ~ dissent_event_frac, data = fariss, x = TRUE, y = TRUE)
-m4 <- lm(latentmean ~ n_dissent_events, data = fariss, x = TRUE, y = TRUE)
+m1 <- lm(latentmean ~ pi, data = fariss)
+m2 <- lm(latentmean ~ eta, data = fariss)
+m3 <- lm(latentmean ~ frac_dissent_events, data = fariss)
+m4 <- lm(latentmean ~ n_dissent_events, data = fariss)
 
 # function to compute the rmse of the regression
 calc_rmse <- function(m_list) {

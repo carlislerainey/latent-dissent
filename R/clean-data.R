@@ -12,8 +12,8 @@ library(mice)
 ritter <- haven::read_dta("data/ritter-2014-replication.dta") %>%
   # extract need variables
   dplyr::select(n_dissent_events = dissct, 
-         n_events = alleventcount,
-         year, ccode)
+  							n_events = alleventcount,
+  							year, ccode)
 
 # create a data set that exhaust country-year combinations
 full_country_year <- crossing(year = seq(min(ritter$year), max(ritter$year), 1),
@@ -41,6 +41,4 @@ si$n_dissent_events <- round(si$n_dissent_events)
 
 # write data to file 
 write_csv(si, "data/events.csv")
-
-
 

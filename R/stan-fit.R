@@ -34,9 +34,9 @@ sims <- as.data.frame(rstan::extract(fit1, par = "eta")) %>%
   dplyr::summarize(pi = mean(plogis(eta)),
             eta = mean(eta)) %>%
   right_join(events) %>%
-  mutate(dissent_event_frac = ifelse(n_events == 0, 0, n_dissent_events/n_events)) %>%
+  mutate(frac_dissent_events = ifelse(n_events == 0, 0, n_dissent_events/n_events)) %>%
   ungroup() %>%
-  dplyr::select(year, ccode, dissent_event_frac, n_dissent_events, pi, eta)
+  dplyr::select(year, ccode, frac_dissent_events, n_dissent_events, pi, eta)
 
 # write latent measures to file
 write_csv(sims, "latent-dissent.csv")

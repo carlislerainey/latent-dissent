@@ -6,6 +6,6 @@ library(tidyverse)
 dissent <- read_csv("latent-dissent.csv")
 
 # scatterplot matrix of four measures
-GGally::ggpairs(select(dissent, n_dissent_events, dissent_event_frac, pi, eta)) + 
+gg <- GGally::ggpairs(select(dissent, n_dissent_events, frac_dissent_events, pi, eta)) + 
 	theme_bw()
-ggsave("figs/cors.png", height = 6, width = 8)
+ggsave("figs/cors.png", gg, height = 6, width = 8)

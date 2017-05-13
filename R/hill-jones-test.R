@@ -1,6 +1,6 @@
 
 # be sure to set working directory, e.g., 
-# setwd("~/Dropbox/projects/latent-dissent")on")
+# setwd("~/Dropbox/projects/latent-dissent")
 
 # load packages
 library(tidyverse)
@@ -23,7 +23,8 @@ vi <- varimp(rf)
 # organize the variable importance into data frame
 vi_df <- data.frame(variable = names(vi), importance = vi) %>%
   mutate(highlight = ifelse(variable %in% c("pi", "eta", "n_dissent_events", 
-                                            "dissent_event_frac"), "My Variables", "HJ's Variables"), 
+                                            "frac_dissent_events"), 
+  													"My Variables", "HJ's Variables"), 
          variable = reorder(variable, importance))
 
 # plot variable importance

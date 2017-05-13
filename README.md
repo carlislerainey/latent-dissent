@@ -5,7 +5,7 @@ This code serves as a proof of concept that I wanted to share with colleagues to
 The output is a country-year data set that contains two latent measures of dissent (`pi` and `eta`). These data sets (`latent-dissent.csv` and `latent-dissent.dta`) contain the following six variables:
 
 - `n_dissent_events`: the number of dissent events that occur in a country-year. Based on the IDEA data, see Ritter (2014).
-- `dissent_event_frac`: the fraction of the events that occur in a country-year. It's the number of dissent events divided by the total number of events.
+- `frac_dissent_events`: the fraction of the events that occur in a country-year. It's the number of dissent events divided by the total number of events.
 - `pi`: the latent probability that an event is a dissent event. This latent measure of dissent ranges from zero to one (at least in theory).
 - `eta`: The logit transformation of `pi`. This latent measure of dissent ranges from negative to positive infinity (again, in theory.)
 - `year` and `ccode`: the year and COW code for merging.

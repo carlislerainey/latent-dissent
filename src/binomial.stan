@@ -15,7 +15,7 @@ parameters {
 }
 
 model {
-    eta[1, ] ~ normal(0, 1); // intensity of initial observation
+    eta[1, ] ~ cauchy(0, 2); // intensity of initial observation
     sigma ~ gamma(1, .1); // prior for latent innovations
     // intensity of subsequest observations
     for (t in 2:T) {
