@@ -15,3 +15,6 @@
 !.gitignore
 data/idea-dissent-events.csv
 data/idea-all-events.csv
+data/raw/2000-2004 Data (N=3464898).tab
+data/raw/1995-1999 Data (N=4_108_102).tab
+data/raw/1990-1994 Data (N=2_679_938).tab
