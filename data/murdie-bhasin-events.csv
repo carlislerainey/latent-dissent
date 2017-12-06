@@ -1,0 +1,53 @@
+ACTIVITY,IDEA.CODE,DEFINITION
+Break relations,<BREL>,Formal severance of ties.
+Defy norms,<DEFY>,"Open defiance of laws and norms, civil disobedience."
+Demonstrate,<DEMO>,Demonstrations not otherwise specified.
+Formally complain,<FCOM>,"Written and institutionalized protests and appeals, and all petition drives and recalls."
+Informally complain,<ICOM>,"Verbal protests and rebukes, and all other informal complaints."
+Protest altruism,<PALT>,Protest demonstrations that place the source (protestor) at risk for the sake of unity with the target.
+Protest demonstrations,<PDEM>,All protest demonstrations not otherwise specified.
+Protest procession,<PMAR>,Picketing and other parading protests.
+Protest obstruction,<POBS>,Sit-ins and other non-military occupation protests.
+Protest defacement,<PPRO>,"Damage, sabotage and the use of graffiti to desecrate property and symbols."
+Reduce routine activity,<REDR>,Reduction of routine and planned activities.
+Rally support,<SRAL>,"Gatherings to express or demonstrate support, celebrations and all other public displays of confidence; includes protest vigils and commemorations."
+Strikes and boycotts,<STRI>,"Labor and professional sanctions reported as strikes, general strikes, walkouts, withholding of goods or services and lockouts."
+Threaten to boycott or embargo,<TBOE>,"Threaten to boycott or impose embargoes, restrict normal interactions presented explicitly as a protest or retaliatory measure."
+Threaten to reduce or break relations,<TRBR>,Threaten to reduce or formally sever ties.
+Sanctions threat,<TSAN>,"Threats of non-military, non-physical force social, economic and political sanctions."
+Give ultimatum,<ULTI>,Threats conveyed explicitly as an ultimatum.
+Abduction,<ABDU>,"Abducting, hijacking and capturing of people."
+Missile attack,<AERI>,Launching of intermediate to long-range conventional ballistic missiles and aerial dropping of conventional explosive devices or bombs.
+Assassination,<ASSA>,Murder that is explicitly characterized as political killing and assassination.
+Beatings,<BEAT>,Beatings (physical assaults without the use of weapons).
+Chem-bio attack,<CBIO>,Use of chemical or biological weapons.
+Unconventional weapons attack,<CBRU>,All uses of Weapons of Mass Destruction (WMD).
+Armed battle,<CLAS>,"Initiation of armed hostilities or engagement between two or more armed forces, includes truce violations (use as default for war and battles)."
+Bodily punishment,<CORP>,"The infliction of bodily injury, death or pain for the explicit purpose of punishment."
+Coups and mutinies,<COUP>,"Coups, mutiny and other rebellion by armed forces."
+Declare war,<DWAR>,Formal or official statement that a state of war exists.
+Force Use,<FORC>,All uses of physical force not otherwise specified.
+Artillery attack,<GRPG>,"Use of short to intermediate range tank-mounted, ship-based or field guns and cannons, mortars and rocket-propelled grenades."
+Hostage taking and kidnapping,<HTAK>,Hostage taking or kidnapping of people.
+Hijacking,<JACK>,All commandeerings of vehicles.
+Torture,<MAIM>,Maiming and all other reports explicitly characterized as torture.
+Armed force blockade,<MBLO>,Use of armed forces to seal off a territory to prevent exit or entry of goods or personnel.
+Mine explosion,<MINE>,Land and underwater mine explosions.
+Armed force occupation,<MOCC>,Use of armed forces to take over or occupy the whole or part of a territory.
+Armed force threats,<MTHR>,All threats to use armed force.
+Other physical force threats,<NMFT>,"All threats to use non-armed, physical force."
+Physical assault,<PASS>,All uses of non-armed physical force in assaults against people not otherwise specified.
+Small arms attack,<PEXE>,"Shooting of small arms, light weapons and small explosives, including the use of all handguns, light machine guns, rifles and hand grenades."
+Armed actions,<RAID>,"Ambiguous initiation of the use of armed forces to fire upon another armed force, population or territory."
+Riot,<RIOT>,"Civil or political unrest explicitly characterized as riots, as well as behavior presented as tumultuous or mob-like. This behavior includes looting, prison uprisings, crowds setting things on fire, general fighting with police (typically by protestors),"
+Suicide bombing,<SBOM>,A bombing in which the bomber perishes during detonation of the explosive.
+Seize,<SEIZ>,All seizures not otherwise specified.
+Seize possession,<SEZR>,Take control of positions or possessions.
+Threaten forceful attack,<TATT>,Explicit threat to use armed forces in an attack or invasion.
+Threaten forceful blockade,<TBLO>,"Explicit threat to use armed ships, airplanes or forces to prevent entry or exit."
+Threaten biological or chemical attack,<TCBR>,"Explicit threat to use biological or chemical weapon against armed forces, a population or territory."
+Threaten,<THRT>,"All threats, coercive warnings not otherwise specified."
+Threaten nuclear attack,<TNUC>,"Explicit threat to use a nuclear or radioactive weapon against armed forces, a population or territory."
+Threaten forceful occupation,<TOCC>,Explicit threat to use armed forces to occupy the whole or part of a territory.
+Threaten war,<TWAR>,Explicit threat to declare a state of (military) war.
+Vehicle bombing,<VBOM>,"Bombing explicitly characterized as a vehicle bombing (car bombing, etc.), except for suicide bombings, which are coded separately."

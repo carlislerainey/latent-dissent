@@ -13,7 +13,7 @@ dissent <- read_csv("latent-dissent.csv")
 # load a singly imputed verion of hill and jones's data set I created
 hj <- read.csv("data/hill-jones-2014-si.csv") %>%
   left_join(dissent) %>%
-  dplyr::select(-ccode, -year, -physint, -disap, -kill, -polpris, -tort, -injud,
+  dplyr::select(-ccode, -country_name, -stateabb, -year, -physint, -disap, -kill, -polpris, -tort, -injud,
                 -amnesty, -latent_sd)
 
 # re-create a simply version of hill and jones's model comparison

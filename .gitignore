@@ -13,3 +13,5 @@
 *.docx
 *-old/
 !.gitignore
+data/idea-dissent-events.csv
+data/idea-all-events.csv

@@ -1,6 +1,10 @@
 # A Latent Measure of Dissent
 
-This code serves as a proof of concept that I wanted to share with colleagues to determine its potential usefulness. This code borrows heavily from data created and shared Emily Ritter, especially her 2014 paper "Policy Disputes, Political Survival, and the Onset and Severity of State dissent" in *JCR*. You can find the details on her [research page](https://www.emilyhenckenritter.com/research/), including her [replication data (`.zip`)](https://www.emilyhenckenritter.com/s/RitterJCR2014Replication.zip) that I use in my analysis.
+This code serves as a proof of concept that I wanted to share with colleagues to determine its potential usefulness. The original data come from King and Lowe's "10 Million International Dyadic Events" on [Dataverse](http://hdl.handle.net/1902.1/FYXLAWZRIA).
+
+In previous versions, I borrowed heavily from data created and shared by Emily Ritter, especially her 2014 paper "Policy Disputes, Political Survival, and the Onset and Severity of State dissent" in *JCR*. You can find the details on her [research page](https://www.emilyhenckenritter.com/research/), including her [replication data (`.zip`)](https://www.emilyhenckenritter.com/s/RitterJCR2014Replication.zip) that I use in my analysis.
+
+I also relied on written work and replication data publicly posted by [Amanda Murdie](http://www.amandamurdie.org/index.html), especially her 2011 paper "Aiding and Abetting: Human Rights INGOs and Domestic Protest" in *JCR* with Tavishi Bhasin.
 
 The output is a country-year data set that contains two latent measures of dissent (`pi` and `eta`). These data sets (`latent-dissent.csv` and `latent-dissent.dta`) contain the following six variables:
 
@@ -38,7 +42,7 @@ Notice that I just use a random walk prior to model the changes in the probabili
 
 ## Fitting the Model
 
-I use Stan to fit the model. This offers a tremendous advantage because Stan can quickly convert between HMC-NUTS and variational inference. Variational inference is extremely useful for this problem, because it allows us to quickly simulate from an approximate posterior, even when the model contains hundreds of thousands of parameters. This isn't particularly important for yearly data, but variational inference can handle daily data from 200 countries over 50 years almost as quickly.
+I use Stan to fit the model. This offers a tremendous advantage because Stan can quickly convert between HMC-NUTS and variational inference. Variational inference is extremely useful for this problem, because it allows us to quickly simulate from an approximate posterior, even when the model contains hundreds of thousands of parameters.
 
 ## Quick Evaluations of the Measures
 
@@ -51,3 +55,11 @@ First, I use the four measures of dissent to predict Fariss's [latent measure of
 Second, I did a re-analysis in the spirit of [Hill and Jones (2014)](https://github.com/zmjones/eeesr). I just added my four explanatory variables to their large suite of other explanatory variables. I tossed all these variables into a random forest and computed the variable importance. The latent measures of dissent aren't as important as the lagged measures of repression or civil war, but they do better than about half of Hill and Jones' collection. Again, `eta` outperforms the other measures. The figures below compare the variable importance of the many potential predictors of repression.
 
 ![](figs/hj-test.png)
+
+Third, I re-fitted the models in Nordas and Davenport (2013). The figures below show the correlations among the measures in my data set and their `dissent` measure. I also show the BIC for the five measures (their one and my four) for the models predicting both the Amnesty and the State outcomes. Finally, I included the table of coefficients for their model predicting the Amnesty outcomes. Notice three things: (1) the measures aren't terribly correlation with each other, (2) again, `eta` predicts best (smallest BIC), and (3) is has the largest effect of all the measure, roughly doubling the estimate for Nordas and Davenport's `dissent` (both are standardized to have and average of 1 and and SD of 0.5, so the coefficient magnitudes are comparable.)
+
+![](figs/nordas-davenport-compare-measures.png)
+
+![](figs/nordas-davenport-test.png)
+
+![](figs/nordas-davenport-estimates.png)
