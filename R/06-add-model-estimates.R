@@ -36,8 +36,8 @@ stan_data <- list(T = T, J = J, N = J*T,
 
 # fit model
 model1 <- stan_model("src/binomial.stan")
-fit1 <- vb(model1, data = stan_data)
-#fit1 <- stan("src/binomial.stan", data = stan_data)
+#fit1 <- vb(model1, data = stan_data, seed = 97854)
+fit1 <- stan("src/binomial.stan", data = stan_data, seed = 97854)
 
 # post-process simulations
 latent_df <- as.data.frame(rstan::extract(fit1, par = "eta")) %>%
@@ -56,8 +56,6 @@ latent_df <- as.data.frame(rstan::extract(fit1, par = "eta")) %>%
          country_name = countrycode(ccode, "cown", "country.name.en")) %>%
   select(country_name, ccode, stateabb, year, n_dissent_events, frac_dissent_events, pi, eta) %>%
   glimpse()
-
-# drop 
 
 # write latent measures to file
 write_csv(latent_df, "latent-dissent.csv")

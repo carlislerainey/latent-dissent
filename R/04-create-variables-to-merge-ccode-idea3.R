@@ -22,10 +22,10 @@ codes_df <- read_csv("data/idea-dissent-events.csv") %>%
   glimpse()
 
 # check names that do not exactly match
-mismatches <- group_by(codes_df, where, country_name) %>%
+mismatches_df <- group_by(codes_df, where, country_name) %>%
   summarize(n = n()) %>%
   filter(where != country_name)
-cbind(mismatches$where, mismatches$country_name)
+cbind(mismatches_df$where, mismatches_df$country_name)
 
 codes_df %>%
   select(-country_name) %>%

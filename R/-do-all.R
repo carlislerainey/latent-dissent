@@ -22,3 +22,8 @@ source("R/05-fill-country-years-with-counts.R")
 source("R/06-add-model-estimates.R")
 source("R/07-plot-eta.R")
 source("R/08-plot-cors.R")
+
+# evaluate new data set
+source("R/test-fariss.R")
+source("R/test-hill-jones.R")
+source("R/test-nordas-davenport.R")
