@@ -3,7 +3,7 @@
 rm(list = ls())
 
 # load events data (created by clean-data.R)
-counts_df <- read_csv("data/idea-counts.csv") %>%
+counts_df <- read_rds("data/idea-counts.rds") %>%
   #filter(date < ymd("1992-01-01")) %>% # make sample smaller for fast computation  <--- TEMP
   glimpse()
 
@@ -12,7 +12,7 @@ counts_df <- read_csv("data/idea-counts.csv") %>%
 complete_cases_df <- counts_df %>%
   group_by(where, ccode) %>%
   summarize(n = n()) %>%
-  filter(n == 5479) %>%
+  filter(n == 180) %>%
   glimpse() 
 counts_df <- counts_df %>%
   filter(ccode %in% complete_cases_df$ccode) %>%
@@ -25,7 +25,7 @@ counts_df <- counts_df %>%
 
 # add country and year indices
 counts_df <- counts_df %>%
-  #filter(ccode %in% sample(unique(ccode), 2)) %>%  # make sample even smaller for fast computation <--- TEMP
+  #filter(ccode %in% sample(unique(ccode), 3)) %>%  # make sample even smaller for fast computation <--- TEMP
   mutate(date_index = match(date, sort(unique(date)))) %>%
   mutate(country_index = match(ccode, sort(unique(ccode)))) %>%
   glimpse()
@@ -41,11 +41,7 @@ stan_data <- list(T = T, J = J, N = J*T,
 
 # fit model
 model1 <- stan_model("src/binomial.stan")
-sink("current-output.txt")
-Sys.time()
-fit1 <- vb(model1, data = stan_data, seed = 97854, 
-           elbo_samples = 10, output_samples = 25)
-Sys.time()
+fit1 <- vb(model1, data = stan_data, seed = 97854)
 #fit1 <- stan("src/binomial.stan", data = stan_data, seed = 97854)
 
 # post-process simulations
@@ -65,11 +61,8 @@ latent_df <- as.data.frame(rstan::extract(fit1, par = "eta")) %>%
          country_name = countrycode(ccode, "cown", "country.name.en")) %>%
   select(country_name, ccode, stateabb, date, n_events, n_dissent_events, frac_dissent_events, pi, eta) %>%
   glimpse()
-Sys.time()
-closeAllConnections() 
 
 # write latent measures to file
-write_csv(latent_df, "latent-dissent.csv")
-write_dta(latent_df, "latent-dissent.dta")
+write_rds(latent_df, "data/raw-monthly-latent-dissent.rds")
 
 
