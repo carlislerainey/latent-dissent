@@ -1,4 +1,10 @@
 
+# load packages
+library(tidyverse)
+library(rstan); options(mc.cores = parallel::detectCores())
+library(countrycode)
+library(haven)
+
 # load events data (created by clean-data.R)
 counts_df <- read.csv("data/idea-counts.csv") %>%
   glimpse()

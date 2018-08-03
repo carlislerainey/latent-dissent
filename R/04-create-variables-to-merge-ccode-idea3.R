@@ -1,4 +1,8 @@
 
+# load packages
+library(tidyverse)
+library(countrycode)
+
 # add cow codes
 fixes_df <- read.csv("data/raw/where-idea-fixes.csv")
 

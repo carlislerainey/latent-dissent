@@ -1,4 +1,7 @@
 
+# load packages
+library(tidyverse)
+
 # load system cow codes
 cow_df <- read_csv("data/raw/system2016.csv") %>%
   select(ccode, year) %>%

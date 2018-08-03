@@ -1,4 +1,8 @@
 
+# load packages
+library(tidyverse)
+library(lubridate)
+
 # From Murdie and and Bhasin (2010): 
 #
 #    To create the new measures, we relied on the IDEA framework (Bond et al. 
@@ -33,16 +37,16 @@ mb_events_df <- read_csv("data/murdie-bhasin-events.csv")
 
 # load data set with description of sectors
 ## from http://hdl.handle.net/1902.1/FYXLAWZRIA (King and Lowe 2003)
-sector_codes_df <- read_csv("data/raw/Sectors of Source _ Target.txt", 
+sector_codes_df <- read_csv("data/raw/king-lowe-2008/sectors-of-source-_-target.txt", 
                             col_names = c("TGTSECTO", "target_description"))
 
 # load data set with description of levels
-level_codes_df <- read_csv("data/raw/Levels of Source _ Target.txt", 
+level_codes_df <- read_csv("data/raw/king-lowe-2008/levels-of-source-_-target.txt", 
                            col_names = c("SRCLEVEL", 
                                          "source_description", 
                                          "source_detailed_description"))
 # load data set with description of names
-names_codes_df <- read_csv("data/raw/Names of Source _ Target.txt", 
+names_codes_df <- read_csv("data/raw/king-lowe-2008/names-of-source-_-target.txt", 
                            col_names = c("SRCNAME", 
                                          "name_description"))
 
@@ -67,9 +71,9 @@ state_agents <- c("<GAGE>",  # government agents
 
 # read raw data
 ## from http://hdl.handle.net/1902.1/FYXLAWZRIA (King and Lowe 2003)
-idea90_raw_df <- read_tsv("data/raw/1990-1994 Data (N=2_679_938).tab")
-idea95_raw_df <- read_tsv("data/raw/1995-1999 Data (N=4_108_102)")
-idea00_raw_df <- read_tsv("data/raw/2000-2004 Data (N=3464898).tab") %>%
+idea90_raw_df <- read_tsv("data/raw/king-lowe-2008/1990-1994-data-(n=2_679_938).txt")
+idea95_raw_df <- read_tsv("data/raw/king-lowe-2008/1995-1999-data-(n=4_108_102).txt")
+idea00_raw_df <- read_tsv("data/raw/king-lowe-2008/2000-2004-data-(n=3464898).txt") %>%
   setNames(toupper(names(.))) %>%
   rename(EVENTDAT = EVENTDATE,
          EVENTFOR = EVENTFORM,

@@ -1,4 +1,7 @@
 
+# load packages
+library(tidyverse)
+
 # load the desired "what"s
 ## The following tibble are pasted from the supplementary materials (see "Protest 
 ## Event Codings" in `data/raw/Murdie Bhasin JCR # Online Replication Materials 
@@ -68,4 +71,5 @@ mb_si_nonviolent <- tibble::tribble(
 mb_si_df <- mb_si_violent %>%
   bind_rows(mb_si_nonviolent)
 
+# write to file
 write_csv(mb_si_df, "data/murdie-bhasin-events.csv")

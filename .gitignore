@@ -15,7 +15,11 @@
 !.gitignore
 data/idea-dissent-events.csv
 data/idea-all-events.csv
-data/raw/2000-2004 Data (N=3464898).tab
-data/raw/1995-1999 Data (N=4_108_102)
-data/raw/1990-1994 Data (N=2_679_938).tab
 .Rproj.user
+Rplots.pdf
+data/raw/king-lowe-2008/1990-1994-data-(n=2_679_938).txt
+data/raw/king-lowe-2008/1995-1999-data-(n=4_108_102).txt
+data/raw/king-lowe-2008/2000-2004-data-(n=3464898).txt
+data/raw/king-lowe-2008/levels-of-source-_-target.txt
+data/raw/king-lowe-2008/names-of-source-_-target.txt
+data/raw/king-lowe-2008/sectors-of-source-_-target.txt

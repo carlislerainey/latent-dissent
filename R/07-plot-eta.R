@@ -1,4 +1,7 @@
 
+# load packages
+library(tidyverse)
+
 # read data
 dissent_df <- read_csv("latent-dissent.csv") %>%
   mutate(percentile_rank_eta = ecdf(eta)(eta))
