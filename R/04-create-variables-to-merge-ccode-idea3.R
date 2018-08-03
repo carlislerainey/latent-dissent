@@ -1,7 +1,4 @@
 
-# clear workspace
-rm(list = ls())
-
 # add cow codes
 fixes_df <- read.csv("data/raw/where-idea-fixes.csv")
 

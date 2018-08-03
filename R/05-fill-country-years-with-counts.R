@@ -1,7 +1,4 @@
 
-# clear workspace
-rm(list = ls())
-
 # load data set of country-years to fill
 country_year_df <-  read_csv("data/empty-country-years-to-fill.csv") %>%
   glimpse()

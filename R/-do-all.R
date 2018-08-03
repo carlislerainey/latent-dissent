@@ -7,12 +7,6 @@ library(rstan); options(mc.cores = parallel::detectCores())
 library(countrycode)
 library(haven)
 
-# clear workspace
-rm(list = ls())
-
-# set working directory
-setwd("~/Dropbox/projects/latent-dissent")
-
 # create the new data set
 source("R/01-create-murdie-bhasin-events-df.R")
 source("R/02-create-empty-country-years.R")

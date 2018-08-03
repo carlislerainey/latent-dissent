@@ -68,7 +68,7 @@ state_agents <- c("<GAGE>",  # government agents
 # read raw data
 ## from http://hdl.handle.net/1902.1/FYXLAWZRIA (King and Lowe 2003)
 idea90_raw_df <- read_tsv("data/raw/1990-1994 Data (N=2_679_938).tab")
-idea95_raw_df <- read_tsv("data/raw/1995-1999 Data (N=4_108_102).tab")
+idea95_raw_df <- read_tsv("data/raw/1995-1999 Data (N=4_108_102)")
 idea00_raw_df <- read_tsv("data/raw/2000-2004 Data (N=3464898).tab") %>%
   setNames(toupper(names(.))) %>%
   rename(EVENTDAT = EVENTDATE,

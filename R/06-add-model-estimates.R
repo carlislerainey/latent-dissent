@@ -1,7 +1,4 @@
 
-# clear workspace
-rm(list = ls())
-
 # load events data (created by clean-data.R)
 counts_df <- read.csv("data/idea-counts.csv") %>%
   glimpse()
@@ -36,8 +33,8 @@ stan_data <- list(T = T, J = J, N = J*T,
 
 # fit model
 model1 <- stan_model("src/binomial.stan")
-#fit1 <- vb(model1, data = stan_data, seed = 97854)
-fit1 <- stan("src/binomial.stan", data = stan_data, seed = 97854)
+fit1 <- vb(model1, data = stan_data, seed = 97854)
+#fit1 <- stan("src/binomial.stan", data = stan_data, seed = 97854)
 
 # post-process simulations
 latent_df <- as.data.frame(rstan::extract(fit1, par = "eta")) %>%

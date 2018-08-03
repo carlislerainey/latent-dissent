@@ -1,7 +1,4 @@
 
-# be sure to set working directory, e.g., 
-# setwd("~/Dropbox/projects/latent-dissent")
-
 # load packages
 library(tidyverse)
 library(magrittr)

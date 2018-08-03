@@ -1,14 +1,9 @@
 
-# be sure to set working directory, e.g., 
-# setwd("~/Dropbox/projects/latent-dissent")
-
-# 
-rm(list = ls())
-
 # load packages
 library(tidyverse)
 library(magrittr)
 library(stringr)
+library(prediction)
 # also calls functions from MASS, arm, and GGally using ::
 
 # load nordas and davenport's replication data and join in my measures

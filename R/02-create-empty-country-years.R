@@ -1,7 +1,4 @@
 
-# clear workspace
-rm(list = ls())
-
 # load system cow codes
 cow_df <- read_csv("data/raw/system2016.csv") %>%
   select(ccode, year) %>%

@@ -1,7 +1,4 @@
 
-# clear workspace
-rm(list = ls())
-
 # load the desired "what"s
 ## The following tibble are pasted from the supplementary materials (see "Protest 
 ## Event Codings" in `data/raw/Murdie Bhasin JCR # Online Replication Materials 
