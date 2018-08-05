@@ -3,10 +3,10 @@
 # phony targets
 # -------------
 
-all: tests model data
-data: data/idea-counts.csv
-model: latent-dissent.csv latent-dissent.dta
 tests: 	figs/eta.png figs/cors.png figs/fariss-test.png figs/hj-test.png figs/nordas-davenport-test.png figs/nordas-davenport-compare-measures.png
+model: latent-dissent.csv latent-dissent.dta
+data: data/idea-counts.csv
+all: tests model data
 
 # ----------
 # clean data

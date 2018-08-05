@@ -51,13 +51,14 @@ latent_df <- as.data.frame(rstan::extract(fit1, par = "eta")) %>%
   select(-par) %>%
   group_by(country_index, year_index) %>%
   summarize(pi = mean(plogis(eta)),
+            se_eta = sd(eta),
             eta = mean(eta)) %>%
   left_join(counts_df) %>%
   mutate(frac_dissent_events = ifelse(n_events == 0, 0, n_dissent_events/n_events)) %>%
   ungroup() %>%
   mutate(stateabb = countrycode(ccode, "cown", "cowc"),
          country_name = countrycode(ccode, "cown", "country.name.en")) %>%
-  select(country_name, ccode, stateabb, year, n_dissent_events, frac_dissent_events, pi, eta) %>%
+  select(country_name, ccode, stateabb, year, n_dissent_events, frac_dissent_events, pi, eta, se_eta) %>%
   glimpse()
 
 # write latent measures to file
