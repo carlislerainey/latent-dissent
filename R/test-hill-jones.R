@@ -11,7 +11,7 @@ dissent <- read_csv("latent-dissent.csv")
 hj <- read.csv("data/hill-jones-2014-si.csv") %>%
   left_join(dissent) %>%
   dplyr::select(-ccode, -country_name, -stateabb, -year, -physint, -disap, -kill, -polpris, -tort, -injud,
-                -amnesty, -latent_sd)
+                -amnesty, -latent_sd, -se_eta)
 
 # re-create a simply version of hill and jones's model comparison
 rf <- cforest(latent ~ ., data = hj)
