@@ -1,18 +1,24 @@
-*A note about reproducibility:* The repo does not contain the raw data (GitHub size limitations), but you can automatically download and clean them with `make data` (or running R scripts `00-*` through `05-*`), producing several intermediate data sets and the cleaned data set `data/idea-counts.csv` that I use to fit the model. The repo *does* contain `data/idea-counts.csv`, so, even without the raw data, you can fit the model with `make model`  (or running R script `06-*`) and perform the tests with `make tests` (or running R scripts `07-*`, `08-*`, and `tests-*`). Reproduce the entire analysis (from raw data to tests) with `make` or `make all`.
-
 # A Latent Measure of Dissent
 
 ## Background
+
+A while back, I was looking around for a country-year measure of dissent, and I realized that many researchers use ad hoc measures, mostly relying on events data. This project develops a standard, easy-to-merge, country-year data set (similar in spirit to Chris Fariss's measure of repression) containing both raw (unmodeled) and latent (modeled) measures of dissent.
+
+In the human rights literature, researchers commonly to use the fraction of dissent events (number of dissent events divided by the total number of events) as a measure of dissent. In countries like the U.S., with thousands of annual events, this fraction serves as a good measure of the concept of interest.
+
+On the other hand, in a country like Cape Verde that only has about four total events per year, this presents a problem. Because the event-data algorithm captures so few events, most years have have 0 events--much lower dissent than the U.S.. But eventually, the algorithm finally captures a dissent event, and the fraction of dissent events jumps to 0.25--an extremely high level of dissent. Of course, these changes are mostly noise.
+
+My latent measure simply smooths the year-to-year changes where the data offer little information about the level of dissent. It learns the about the year-to-year similarity in the level of dissent for high-information countries (like the U.S.) and uses that year-to-year similarity to smooth the measure for low-information countries (like Cape Verde).
+
+## The Data
+
+### An Overview
 
 This code serves as a proof of concept that I wanted to share with colleagues to determine its potential usefulness. The original data come from King and Lowe's "10 Million International Dyadic Events" on [Dataverse](http://hdl.handle.net/1902.1/FYXLAWZRIA).
 
 In previous versions, I borrowed heavily from data cleaned and shared by Emily Ritter, especially her 2014 paper "Policy Disputes, Political Survival, and the Onset and Severity of State dissent" in *JCR*. You can find the details on her [research page](https://www.emilyhenckenritter.com/research/), including her [replication data (`.zip`)](https://www.emilyhenckenritter.com/s/RitterJCR2014Replication.zip) that I previously used in my analysis.
 
 I also relied on written work and replication data publicly posted by [Amanda Murdie](http://www.amandamurdie.org/index.html), especially her 2011 paper "Aiding and Abetting: Human Rights INGOs and Domestic Protest" in *JCR* with Tavishi Bhasin.
-
-## The Data
-
-### An Overview
 
 The output is a country-year data set that contains two latent measures of dissent (`pi` and `eta`). These data sets (`latent-dissent.csv` and `latent-dissent.dta`) contain the following six variables:
 
@@ -76,3 +82,7 @@ Third, I re-fitted the models in Nordas and Davenport (2013). The figures below 
 ![](figs/nordas-davenport-test.png)
 
 ![](figs/nordas-davenport-estimates.png)
+
+## Reproduction
+
+The repo does not contain the raw data (GitHub size limitations), but you can automatically download and clean them with `make data` (or running R scripts `00-*` through `05-*`), producing several intermediate data sets and the cleaned data set `data/idea-counts.csv` that I use to fit the model. The repo *does* contain `data/idea-counts.csv`, so, even without the raw data, you can fit the model with `make model`  (or running R script `06-*`) and perform the tests with `make tests` (or running R scripts `07-*`, `08-*`, and `tests-*`). Reproduce the entire analysis (from raw data to tests) with `make` or `make all`.
