@@ -41,4 +41,4 @@ ggplot(nd2013_df, aes(x = totpopln, y = dissent)) +
   geom_smooth() + 
   theme_bw()
 ggsave("present/figs/scatter-pop-dissent-events.png",
-       height = 6, width = 8) + 
+       height = 6, width = 8)
