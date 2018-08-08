@@ -8,6 +8,13 @@ model: latent-dissent.csv latent-dissent.dta
 data: data/idea-counts.csv
 all: tests model data
 
+# ---------
+# draw makefile dag
+#dag: makefile-dag.png
+
+makefile-dag.png: Makefile
+	make -Bnd | make2graph | dot -Tpng -Gdpi=300 -o makefile-dag.png
+
 # ----------
 # clean data
 # ----------
