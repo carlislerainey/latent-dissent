@@ -1,4 +1,6 @@
 
+# plot three countries -------------------
+
 # load packages
 library(tidyverse)
 
@@ -25,5 +27,18 @@ ggplot(df, aes(x = year, y = dissent, color = country_name)) +
   geom_line() + 
   facet_wrap(~ measure, scales = "free") + 
   theme_bw()
+ggsave("present/figs/compare-measures-3-states.png",
+       height = 6, width = 8)
 
+# look at total events versus gdp and population -----
 
+# load nordas and davenport's replication data and join in my measures
+nd2013_df <- haven::read_dta("data/nordas-davenport-2013-replication.dta") %>%
+  glimpse()
+
+ggplot(nd2013_df, aes(x = totpopln, y = dissent)) + 
+  geom_point() + 
+  geom_smooth() + 
+  theme_bw()
+ggsave("present/figs/scatter-pop-dissent-events.png",
+       height = 6, width = 8) + 
