@@ -14,6 +14,17 @@ all: tests model data
 
 makefile-dag.png: Makefile
 	make -Bnd | make2graph | dot -Tpng -Gdpi=300 -o makefile-dag.png
+	
+# -------------------------
+# create model equation png
+# -------------------------
+
+figs/model.png: doc/model.tex
+	cd doc; pdflatex model.tex
+	cd doc; pdfcrop model.pdf model-cropped.pdf
+	pdftoppm -png doc/model-cropped.pdf > figs/model.png
+	rm -f doc/model-cropped.pdf doc/*.pdf doc/*.aux doc/*.log 
+# note: pdftoppm uses poppler; brew install poppler
 
 # ----------
 # clean data

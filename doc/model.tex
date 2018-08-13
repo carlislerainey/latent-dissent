@@ -11,12 +11,12 @@
 %\renewcommand*{\familydefault}{\sfdefault}
 
 \parindent=0in\begin{document}
+\thispagestyle{empty}
 
 \begin{align*}
 \text{Dissent Events}_{j,t} &\sim \text{binomial}(\text{Total Events}_{j,t}, \pi_{j,t})\\
 \text{logit}(\pi_{j,t}) &= \eta_{j, t}\\
-\eta_{j,t} &\sim \text{normal}(\eta_{j, t-1}, \sigma),
+\eta_{j,t} &\sim \text{normal}(\eta_{j, t-1}, \sigma)
 \end{align*}
-
 
 \end{document}
