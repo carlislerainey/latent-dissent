@@ -75,7 +75,7 @@ Second, I did a re-analysis in the spirit of [Hill and Jones (2014)](https://git
 
 ### Nordas and Davenport (2013)
 
-Third, I re-fitted the models in Nordas and Davenport (2013). The figures below show the correlations among the measures in my data set and their `dissent` measure. I also show the BIC for the five measures (their one and my four) for the models predicting both the Amnesty and the State outcomes. Finally, I included the table of coefficients for their model predicting the Amnesty outcomes. Notice three things: (1) the measures aren't terribly correlated with each other, (2) again, `eta` predicts best (smallest BIC), and (3) is has the largest effect of all the measure, roughly doubling the estimate for Nordas and Davenport's `dissent` (both are standardized to have and average of 1 and and SD of 0.5, so the coefficient magnitudes are comparable.)
+Third, I re-fitted the models in Nordas and Davenport (2013). The figures below show the correlations among the measures in my data set and their `dissent` measure. I also show the BIC for the five measures (their one and my four) for the models predicting both the Amnesty and the State outcomes. Finally, I show the coefficients for their model predicting the Amnesty and State outcomes. Notice three things: (1) the measures aren't terribly correlated with each other, (2) again, `eta` predicts best (smallest BIC), and (3) `eta` has the largest effect of all the measure, roughly doubling the estimate for Nordas and Davenport's measure (I standardize each measure to have an average of 0 and an SD of 0.5, so the coefficient magnitudes are comparable.)
 
 ![](figs/nordas-davenport-compare-measures.png)
 

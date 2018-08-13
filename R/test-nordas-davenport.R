@@ -1,6 +1,7 @@
 
 # load packages
 library(tidyverse)
+library(broom)
 library(magrittr)
 library(stringr)
 library(prediction)
@@ -93,9 +94,52 @@ m4b <- update(m4, as.ordered(State_Dept) ~ .)
 m5b <- update(m5, as.ordered(State_Dept) ~ .)
 m6b <- update(m6, as.ordered(State_Dept) ~ .)
 
-# coefficient tables
-texreg::screenreg(list(m2, m3, m4, m5, m6))
-texreg::screenreg(list(m2b, m3b, m4b, m5b, m6b))
+# plot coefficients
+br2 <- tidy(m2, conf.int = TRUE) %>%
+  mutate(model = "ND's Model")
+br3 <- tidy(m3, conf.int = TRUE) %>%
+  mutate(model = "Number of Dissent Events")
+br4 <- tidy(m4, conf.int = TRUE) %>%
+  mutate(model = "Fraction of Dissent Events")
+br5 <- tidy(m5, conf.int = TRUE) %>%
+  mutate(model = "pi")
+br6 <- tidy(m6, conf.int = TRUE) %>%
+  mutate(model = "eta")
+br <- bind_rows(br2, br3, br4, br5, br6) %>%
+  mutate(outcome = "Amnesty International")
+br2b <- tidy(m2b, conf.int = TRUE) %>%
+  mutate(model = "ND's Model")
+br3b <- tidy(m3b, conf.int = TRUE) %>%
+  mutate(model = "Number of Dissent Events")
+br4b <- tidy(m4b, conf.int = TRUE) %>%
+  mutate(model = "Fraction of Dissent Events")
+br5b <- tidy(m5b, conf.int = TRUE) %>%
+  mutate(model = "pi")
+br6b <- tidy(m6b, conf.int = TRUE) %>%
+  mutate(model = "eta")
+brb <- bind_rows(br2b, br3b, br4b, br5b, br6b) %>%
+  mutate(outcome = "State Department")
+br_all <- bind_rows(br, brb) %>%
+  filter(substr(term, 1, 13) == "arm::rescale(") %>%
+  mutate(term = str_extract(term, pattern = "\\((.+)\\)")) %>%
+  mutate(term = str_remove(term, "\\(")) %>%
+  mutate(term = str_remove(term, "\\)")) %>%
+  mutate(term = reorder(term, estimate)) %>%
+  mutate(term = fct_recode(term, 
+                           "Number of Dissent Events" = "n_dissent_events",
+                           "Nordas and Davenport's Measure" = "dissent",
+                           "Fraction of Dissent Events" = "frac_dissent_events"))
+
+ggplot(br_all, aes(x = estimate, xmin = conf.low, xmax = conf.high, y = term)) + 
+  geom_point(alpha = 0.5) + 
+  geom_errorbarh(height = 0, alpha = 0.5) + 
+  facet_wrap(~ outcome) +
+  labs(x = "Ordered Probit Coefficient Estimate",
+       y = "Measure of Dissent",
+       caption = "I rescaled all measures to have mean of zero and SD of 0.5. 
+                  Each model includes all control variables from Nordas and Davenport (2013).") + 
+  theme_bw()
+ggsave(filename = "figs/nordas-davenport-estimates.png", height = 2.5, width = 5)
 
 #####################################################
 # part 4: predictive performance of the five measures

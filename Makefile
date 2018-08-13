@@ -72,7 +72,7 @@ figs/fariss-test.png: R/test-fariss.R latent-dissent.csv data/farriss-scores.csv
 figs/hj-test.png: R/test-hill-jones.R latent-dissent.csv data/hill-jones-2014-si.csv
 	Rscript $<
 
-figs/nordas-davenport-test.png figs/nordas-davenport-compare-measures.png: R/test-nordas-davenport.R latent-dissent.dta data/nordas-davenport-2013-replication.dta 
+figs/nordas-davenport-test.png figs/nordas-davenport-compare-measures.png figs/nordas-davenport-estimates.png: R/test-nordas-davenport.R latent-dissent.dta data/nordas-davenport-2013-replication.dta 
 	Rscript $<
 
 # ---------------
@@ -86,6 +86,7 @@ cleantests:
 	rm -f figs/hj-test.png
 	rm -f figs/nordas-davenport-test.png 
 	rm -f figs/nordas-davenport-compare-measures.png
+	rm -f figs/nordas-davenport-compare-estimates.png
 
 cleanmodel: cleantests
 	rm -f latent-dissent.csv 
