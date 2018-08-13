@@ -22,7 +22,7 @@ makefile-dag.png: Makefile
 figs/model.png: doc/model.tex
 	cd doc; pdflatex model.tex
 	cd doc; pdfcrop model.pdf model-cropped.pdf
-	pdftoppm -png doc/model-cropped.pdf > figs/model.png
+	pdftoppm -png -r 300 doc/model-cropped.pdf > figs/model.png
 	rm -f doc/model-cropped.pdf doc/*.pdf doc/*.aux doc/*.log 
 # note: pdftoppm uses poppler; brew install poppler
 
